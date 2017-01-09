@@ -1,0 +1,6 @@
+[08-Nov-2016 09:51:59 America/Chicago] PHP Notice:  Use of undefined constant IURL_ROOT - assumed 'IURL_ROOT' in /home/rusiainf/public_html/inai/tpo/tpoadminv1/application/config/constants.php on line 99
+[08-Nov-2016 09:51:59 America/Chicago] PHP Notice:  Use of undefined constant IDIR_ROOT - assumed 'IDIR_ROOT' in /home/rusiainf/public_html/inai/tpo/tpoadminv1/application/config/constants.php on line 100
+[08-Nov-2016 09:51:59 America/Chicago] PHP Notice:  Use of undefined constant IURL_COMUN - assumed 'IURL_COMUN' in /home/rusiainf/public_html/inai/tpo/tpoadminv1/application/config/constants.php on line 101
+[08-Nov-2016 09:51:59 America/Chicago] PHP Notice:  Use of undefined constant IDIR_COMUN - assumed 'IDIR_COMUN' in /home/rusiainf/public_html/inai/tpo/tpoadminv1/application/config/constants.php on line 102
+[08-Nov-2016 09:51:59 America/Chicago] PHP Warning:  include(IDIR_COMUNplugins/d3d/compress/compressor.php): failed to open stream: No such file or directory in /home/rusiainf/public_html/inai/tpo/tpoadminv1/application/config/constants.php on line 134
+[08-Nov-2016 09:51:59 America/Chicago] PHP Warning:  include(): Failed opening 'IDIR_COMUNplugins/d3d/compress/compressor.php' for inclusion (include_path='.:/usr/lib/php:/usr/local/lib/php') in /home/rusiainf/public_html/inai/tpo/tpoadminv1/application/config/constants.php on line 134

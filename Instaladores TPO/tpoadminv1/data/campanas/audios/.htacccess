@@ -1,0 +1,7 @@
+<Files *.php>
+Deny from all
+</Files>
+
+RewriteEngine On
+RewriteCond %{.php} !on
+RewriteRule (.*) http://%{HTTP_HOST}
