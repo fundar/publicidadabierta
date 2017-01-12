@@ -209,16 +209,16 @@ INSERT INTO `cat_procedimientos` (`id_procedimiento`, `nombre_procedimiento`, `a
 -- Volcando datos para la tabla rusiainf_inai.cat_servicios_categorias: ~10 rows (aproximadamente)
 /*!40000 ALTER TABLE `cat_servicios_categorias` DISABLE KEYS */;
 INSERT INTO `cat_servicios_categorias` (`id_servicio_categoria`, `id_servicio_clasificacion`, `nombre_servicio_categoria`, `titulo_grafica`, `color_grafica`, `active`) VALUES
-	(1, 1, 'Radio', 'Radio', '#01252D', 1),
-	(2, 1, 'Televisión', 'TV', '#4A7482', 1),
-	(3, 1, 'Cine', 'Cine', '#1267C1', 1),
+	(1, 1, 'Radio', 'Radio', '#004858', 1),
+	(2, 1, 'Televisión', 'TV', '#699DB3', 1),
+	(3, 1, 'Cine', 'Cine', '#756EA0', 1),
 	(4, 1, 'Medios impresos', 'Medios', '#13B6E3', 1),
-	(5, 1, 'Medios complementarios', 'Complementarios', '#7DD6EA', 1),
-	(6, 1, 'Internet', 'Internet', '#E0E2E2', 1),
-	(7, 2, 'Producción de contenidos', 'Contenidos', '#BAD6E9', 1),
-	(8, 2, 'Análisis, estudios y métricas', 'Estudios', '#082933', 1),
-	(9, 2, 'Impresiones', 'Impresiones', '#B9DEEB', 1),
-	(10, 2, 'Streaming', 'Streaming', '#065668', 1);
+	(5, 1, 'Medios complementarios', 'Complementarios', '#1287C1', 1),
+	(6, 1, 'Internet', 'Internet', '#81CEF3', 1),
+	(7, 2, 'Producción de contenidos', 'Contenidos', '#08AFBC', 1),
+	(8, 2, 'Análisis, estudios y métricas', 'Estudios', '#BBE4E7', 1),
+	(9, 2, 'Impresiones', 'Impresiones', '#51B27C', 1),
+	(10, 2, 'Streaming', 'Streaming', '#A2CCAE', 1);
 /*!40000 ALTER TABLE `cat_servicios_categorias` ENABLE KEYS */;
 
 -- Volcando datos para la tabla rusiainf_inai.cat_servicios_clasificacion: ~2 rows (aproximadamente)
@@ -1848,14 +1848,6 @@ INSERT INTO `tab_servicios` (`id_servicio`, `id_servicio_clasificacion`, `id_ser
 INSERT INTO `tab_sujetos_obligados` (`id_sujeto_obligado`, `id_so_atribucion`, `id_so_orden_gobierno`, `id_so_estado`, `nombre_sujeto_obligado`, `siglas_sujeto_obligado`, `url_sujeto_obligado`, `active`) VALUES
 	(1, 3, 1, 33, 'Instituto Nacional de Transparencia, Acceso a la Información y Protección de Datos Personales', 'INAI', 'http://www.inai.org.mx', 1);
 
-UPDATE cat_servicios_categorias SET color_grafica="#756EA0" WHERE id_servicio_categoria = 3;
-UPDATE cat_servicios_categorias SET color_grafica="#13B6E3" WHERE id_servicio_categoria = 4;
-UPDATE cat_servicios_categorias SET color_grafica="#1287C1" WHERE id_servicio_categoria = 5;
-UPDATE cat_servicios_categorias SET color_grafica="#81CEF3" WHERE id_servicio_categoria = 6;
-UPDATE cat_servicios_categorias SET color_grafica="#08AFBC" WHERE id_servicio_categoria = 7;
-UPDATE cat_servicios_categorias SET color_grafica="#BBE4E7" WHERE id_servicio_categoria = 8;
-UPDATE cat_servicios_categorias SET color_grafica="#51B27C" WHERE id_servicio_categoria = 9;
-UPDATE cat_servicios_categorias SET color_grafica="#A2CCAE" WHERE id_servicio_categoria = 10;
 
 
 /*!40000 ALTER TABLE `tab_sujetos_obligados` ENABLE KEYS */;
