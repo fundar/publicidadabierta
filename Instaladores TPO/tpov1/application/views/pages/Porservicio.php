@@ -174,11 +174,12 @@ function dashboard(id, fData){
     // function to handle histogram.
     function histoGram(fD){
         var hG={},    hGDim = {t: 60, r: 0, b: 30, l: 0};
-        hGDim.w = 600 - hGDim.l - hGDim.r, 
+        hGDim.w = 500 - hGDim.l - hGDim.r, 
         hGDim.h = 300 - hGDim.t - hGDim.b;
             
         //create svg for histogram.
         var hGsvg = d3.select(id).append("svg")
+            .attr('class','histo')
             .attr("width", hGDim.w + hGDim.l + hGDim.r)
             .attr("height", hGDim.h + hGDim.t + hGDim.b).append("g")
             .attr("transform", "translate(" + hGDim.l + "," + hGDim.t + ")");
@@ -200,6 +201,7 @@ function dashboard(id, fData){
         var bars = hGsvg.selectAll(".bar").data(fD).enter()
                 .append("g").attr("class", "bar");
         
+
         //create the rectangles.
         bars.append("rect")
             .attr("x", function(d) { return x(d[0]); })
@@ -211,7 +213,7 @@ function dashboard(id, fData){
             .on("mouseout",mouseout);// mouseout is defined below.
 
         //Create the frequency labels above the rectangles.
-        bars.append("text").text(function(d){ return '$' + d3.format(",")(Math.floor(d[1]/1000)); })
+        bars.append("text").text(function(d){ return d3.format(",")(d[1])})
             .attr("x", function(d) { return x(d[0])+x.rangeBand()/2; })
             .attr("y", function(d) { return y(d[1])-5; })
             .attr("text-anchor", "middle");
@@ -228,6 +230,7 @@ function dashboard(id, fData){
         
         function mouseout(d){    // utility function to be called on mouseout.
             // reset the pie-chart and legend.    
+            
             pC.update(tF);
             leg.update(tF);
         }
@@ -248,19 +251,21 @@ function dashboard(id, fData){
 
             // transition the frequency labels location and change value.
             bars.select("text").transition().duration(500)
-                .text(function(d){ return '$' + d3.format(",")(Math.floor(d[1]/1000)); })
+                .text(function(d){ return d3.format(",")(d[1])})
                 .attr("y", function(d) {return y(d[1])-5; });            
         }        
         return hG;
     }
     
+    
     // function to handle pieChart.
     function pieChart(pD){
-        var pC ={},    pieDim ={w:250, h: 250};
+        var pC ={},    pieDim ={w:210, h: 210};
         pieDim.r = Math.min(pieDim.w, pieDim.h) / 2;
                 
         // create svg for pie chart.
         var piesvg = d3.select(id).append("svg")
+            .attr('class','pie')
             .attr("width", pieDim.w).attr("height", pieDim.h).append("g")
             .attr("transform", "translate("+pieDim.w/2+","+pieDim.h/2+")");
         
@@ -273,8 +278,8 @@ function dashboard(id, fData){
         var div = d3.select("body").append("div")   
             .attr("class", "tooltip")               
             .style("opacity", 0);
-
         // Draw the pie slices.
+                
         piesvg.selectAll("path").data(pie(pD)).enter().append("path").attr("d", arc)
             .each(function(d) { this._current = d; })
             .style("fill", function(d) { return segColor(d.data.type); })
@@ -304,7 +309,6 @@ function dashboard(id, fData){
                 .style("top", (d3.event.pageY - 28) + "px");    
                              
         }
-
         //Utility function to be called on mouseout a pie slice.
         function mouseout(d){
             // call the update function of histogram with all data.
@@ -315,7 +319,6 @@ function dashboard(id, fData){
                     .duration(500)      
                     .style("opacity", 0);   
         }
-
         // Animating the pie-slice requiring a custom function which specifies
         // how the intermediate paths should be drawn.
         function arcTween(a) {
@@ -323,6 +326,7 @@ function dashboard(id, fData){
             this._current = i(0);
             return function(t) { return arc(i(t));    };
         }    
+        $(".pie").prependTo(".histo")
         return pC;
     }
     
