@@ -54,6 +54,11 @@ rect:hover {  fill:blue; }
    table {
       font-size: small !important;
    }
+
+  @media (max-width: 400px) {
+    #dashboard { display: none; }
+  }
+   
 </style>
 
       <center>
@@ -128,6 +133,8 @@ Muestra el monto gastado en otros servicios relacionados con la comunicación, c
 <td>* Internet</td>
 </tr>
 </table>
+
+
 
 
    <div id='dashboard' data-step="4" data-intro="Gráfica<br>Muestra el gasto por tipo de difusión: radio, televisión, cine, medios impresos, medios complementarios, Internet, otros, en el periodo seleccionado, en el periodo seleccionado.">
